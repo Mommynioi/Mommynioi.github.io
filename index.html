@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="SinkSync - Rate and discover the best GIFs">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFC0CB">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SinkSync">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>SinkSync</title>
+  <link rel="manifest" href="manifest.json">
+  
+  <style>
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #ffffff;
+      z-index: 999;
+      transition: opacity 0.8s ease-out;
+    }
+    
+    #loading.fade {
+      opacity: 0;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,192,203,0.3);
+      border-top-color: #FFC0CB;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .app-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFC0CB;
+      margin-top: 10px;
+    }
+    
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <div class="spinner"></div>
+    <div class="app-title">SinkSync</div>
+  </div>
+  
+  <script>
+    window.addEventListener('load', function() {
+      // Flutter initialization may take time after JS load
+      setTimeout(function() {
+        var loading = document.getElementById('loading');
+        if (loading) {
+          loading.classList.add('fade');
+          setTimeout(function() {
+            loading.style.display = 'none';
+          }, 800);
+        }
+      }, 2000);
+    });
+  </script>
+  
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
