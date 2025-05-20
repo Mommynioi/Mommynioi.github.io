@@ -1,0 +1,4 @@
+dependencies:
+  flutter:
+    sdk: flutter
+  superbase_flutter: 2.9.0
